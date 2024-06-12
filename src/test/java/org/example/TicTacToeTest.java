@@ -1,6 +1,5 @@
 package org.example;
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -21,6 +20,18 @@ import org.junit.Test;
 
 
             assertEquals('X', cellValue);
+        }
+
+        @Test
+        public void testPlaceMarkerIncorrect() {
+            // Arrange
+            game.board.place(0, 0, 'X');
+
+            // Act
+            char cellValue = game.board.getCells()[0][0];
+
+            // Assert (this will fail because the expected value is intentionally wrong)
+            assertNotEquals('O', cellValue);
         }
     }
 
