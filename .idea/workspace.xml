@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64f1fb3c-7925-4208-a7d8-dd26c0180cfd" name="Changes" comment="game ending notification + test for player class added">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TicTacToe.java" afterDir="false" />
-    </list>
+    <list default="true" id="64f1fb3c-7925-4208-a7d8-dd26c0180cfd" name="Changes" comment="restart game function added" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +21,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="restart-game" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -204,7 +202,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718366202157</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="restart game function added">
+      <option name="closed" value="true" />
+      <created>1718366714746</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1718366714746</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +232,8 @@
     <MESSAGE value="board gets printed + new test for printing board added" />
     <MESSAGE value="changes" />
     <MESSAGE value="game ending notification + test for player class added" />
-    <option name="LAST_COMMIT_MESSAGE" value="game ending notification + test for player class added" />
+    <MESSAGE value="restart game function added" />
+    <option name="LAST_COMMIT_MESSAGE" value="restart game function added" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
