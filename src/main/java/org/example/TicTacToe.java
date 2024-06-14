@@ -19,6 +19,8 @@ public class TicTacToe {
     public void start() {
         boolean playing = true;
         while (playing == true) {
+            if (currentPlayer.getMarker() == '0') switchCurrentPlayer();
+
             System.out.println("Player " + currentPlayer.getMarker() + "'s turn");
 
             int row = getInput("Enter row (0, 1 or 2) ");
@@ -39,6 +41,14 @@ public class TicTacToe {
             } else {
                 System.out.println("This position is already occupied. Choose a different one.");
             }
+        }
+        System.out.println("Game over. Do you want to play again? (yes/no)");
+
+        Scanner scanner = new Scanner(System.in);
+        String response = scanner.next();
+        if (response.equalsIgnoreCase("yes")) {
+            board.clear();
+            start();
         }
     }
 
