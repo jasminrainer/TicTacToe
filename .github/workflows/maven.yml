@@ -24,7 +24,7 @@ jobs:
       - name: Run Checkstyle
         run: mvn checkstyle:check
       - name: Upload JAR Artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: TicTacToe-JAR
           path: target/TicTacToe-1.0-SNAPSHOT.jar
