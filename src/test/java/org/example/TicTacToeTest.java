@@ -2,14 +2,14 @@ package org.example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 
 public class TicTacToeTest {
     private TicTacToe game;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         game = new TicTacToe();
     }

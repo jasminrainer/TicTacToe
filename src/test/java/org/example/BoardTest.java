@@ -1,7 +1,7 @@
 package org.example;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
@@ -12,7 +12,7 @@ public class BoardTest {
 
     private TicTacToe game;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         TicTacToe game = new TicTacToe();
     }
