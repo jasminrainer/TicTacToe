@@ -38,7 +38,6 @@ public class TicTacToe {
                 }
             } else {
                 System.out.println("This position is already occupied. Choose a different one.");
-
             }
         }
     }
