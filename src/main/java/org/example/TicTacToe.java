@@ -1,17 +1,19 @@
 package org.example;
+
 import java.util.Scanner;
 
 public class TicTacToe {
+    public Board board;
     private Player player1;
     private Player player2;
     private Player currentPlayer;
-    public Board board;
 
     public TicTacToe() {
         this.board = new Board();
         this.player1 = new Player('X');
         this.player2 = new Player('O');
         this.currentPlayer = player1;
+        board.print();
     }
 
     public void start() {
@@ -24,11 +26,13 @@ public class TicTacToe {
 
             if (board.isCellEmpty(row, col)) {
                 board.place(row, col, currentPlayer.getMarker());
+                board.print();
                 switchCurrentPlayer();
 
             } else {
-                System.out.println("This position is already occupied. Choose a different one.");
 
+                System.out.println("This position is already occupied. Choose a different one.");
+                board.print();
             }
         }
     }
