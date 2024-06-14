@@ -1,0 +1,83 @@
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project xmlns=\"http://maven.apache.org/POM/4.0.0\"\n         xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n         xsi:schemaLocation=\"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd\">\n    <modelVersion>4.0.0</modelVersion>\n\n    <groupId>at.technikum</groupId>\n    <artifactId>TicTacToe</artifactId>\n    <version>1.0-SNAPSHOT</version>\n\n    <properties>\n        <maven.compiler.source>20</maven.compiler.source>\n        <maven.compiler.target>20</maven.compiler.target>\n        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>\n    </properties>\n\n    <dependencies>\n        <dependency>\n            <groupId>org.junit.jupiter</groupId>\n            <artifactId>junit-jupiter</artifactId>\n            <version>5.10.2</version>\n            <scope>test</scope>\n        </dependency>\n    </dependencies>\n\n    <build>\n        <plugins>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-surefire-plugin</artifactId>\n                <version>3.2.5</version>\n            </plugin>\n            <plugin>\n                <groupId>org.apache.maven.plugins</groupId>\n                <artifactId>maven-checkstyle-plugin</artifactId>\n                <version>3.3.1</version>\n                <configuration>\n                    <configLocation>checkstyle.xml</configLocation>\n                </configuration>\n                <executions>\n                    <execution>\n                        <phase>validate</phase>\n                        <goals>\n                            <goal>check</goal>\n                        </goals>\n                    </execution>\n                </executions>\n            </plugin>\n        </plugins>\n    </build>\n</project>\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/pom.xml b/pom.xml
+--- a/pom.xml	
++++ b/pom.xml	
+@@ -48,4 +48,4 @@
+             </plugin>
+         </plugins>
+     </build>
+-</project>
++</project>
+\ No newline at end of file
+Index: .github/workflows/maven.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>name: Java CI with Maven\n\non:\n  push:\n    branches: [ \"main\" ]\n  pull_request:\n    branches: [ \"main\" ]\n\njobs:\n  build:\n\n    runs-on: ubuntu-latest\n\n    steps:\n      - uses: actions/checkout@v4\n      - name: Set up JDK 20\n        uses: actions/setup-java@v3\n        with:\n          java-version: '20'\n          distribution: 'temurin'\n          cache: maven\n      - name: Build with Maven\n        run: mvn -B package --file pom.xml\n      - name: Run Checkstyle\n        run: mvn checkstyle:check\n      - name: Upload JAR Artifact\n        uses: actions/upload-artifact@v3\n        with:\n          name: TicTacToe-JAR\n          path: target/TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.github/workflows/maven.yml b/.github/workflows/maven.yml
+--- a/.github/workflows/maven.yml	
++++ b/.github/workflows/maven.yml	
+@@ -21,10 +21,14 @@
+           cache: maven
+       - name: Build with Maven
+         run: mvn -B package --file pom.xml
++
++
++      - uses: actions/upload-artifact@v4
++        with:
++          name: deploy_snapshot
++          path: TicTacToe/target/**.jar
+       - name: Run Checkstyle
+         run: mvn checkstyle:check
+-      - name: Upload JAR Artifact
+-        uses: actions/upload-artifact@v3
+-        with:
+-          name: TicTacToe-JAR
+-          path: target/TicTacToe-1.0-SNAPSHOT-jar-with-dependencies.jar
++
++
++
+Index: src/test/java/org/example/PlayerTest.java
+===================================================================
+diff --git a/src/test/java/org/example/PlayerTest.java b/src/test/java/org/example/PlayerTest.java
+new file mode 100644
+--- /dev/null	
++++ b/src/test/java/org/example/PlayerTest.java	
+@@ -0,0 +1,28 @@
++package org.example;
++import static org.junit.jupiter.api.Assertions.assertEquals;
++import static org.junit.jupiter.api.Assertions.assertNotEquals;
++
++import org.junit.jupiter.api.BeforeEach;
++import org.junit.jupiter.api.Test;
++
++public class PlayerTest {
++    private Player playerX;
++    private Player playerO;
++
++    @BeforeEach
++    public void setUp() {
++        playerX = new Player('X');
++        playerO = new Player('O');
++    }
++
++    @Test
++    public void testGetMarker() {
++        assertEquals('X', playerX.getMarker());
++        assertEquals('O', playerO.getMarker());
++    }
++
++    @Test
++    public void testPlayerMarkersNotEqual() {
++        assertNotEquals(playerX.getMarker(), playerO.getMarker());
++    }
++}
+\ No newline at end of file
