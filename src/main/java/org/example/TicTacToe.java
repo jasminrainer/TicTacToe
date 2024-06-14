@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class TicTacToe {
     public Board board;
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
     private Player currentPlayer;
 
     public TicTacToe() {
@@ -18,7 +18,7 @@ public class TicTacToe {
 
     public void start() {
         boolean playing = true;
-        while (playing == true) {
+        while (playing) {
             if (currentPlayer.getMarker() == '0') switchCurrentPlayer();
 
             System.out.println("Player " + currentPlayer.getMarker() + "'s turn");
@@ -74,12 +74,8 @@ public class TicTacToe {
             }
         }
 
-        if ((cells[0][0] == marker && cells[1][1] == marker && cells[2][2] == marker) ||
-                (cells[0][2] == marker && cells[1][1] == marker && cells[2][0] == marker)) {
-
-            return true;
-        }
-        return false;
+        return (cells[0][0] == marker && cells[1][1] == marker && cells[2][2] == marker) ||
+                (cells[0][2] == marker && cells[1][1] == marker && cells[2][0] == marker);
     }
 
 
