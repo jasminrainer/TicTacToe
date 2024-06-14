@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64f1fb3c-7925-4208-a7d8-dd26c0180cfd" name="Changes" comment="restart game function added" />
+    <list default="true" id="64f1fb3c-7925-4208-a7d8-dd26c0180cfd" name="Changes" comment="reformatted code">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/TicTacToe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/TicTacToe.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1718366850743</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="reformatted code">
+      <option name="closed" value="true" />
+      <created>1718367189699</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1718367189699</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,7 +251,8 @@
     <MESSAGE value="changes" />
     <MESSAGE value="game ending notification + test for player class added" />
     <MESSAGE value="restart game function added" />
-    <option name="LAST_COMMIT_MESSAGE" value="restart game function added" />
+    <MESSAGE value="reformatted code" />
+    <option name="LAST_COMMIT_MESSAGE" value="reformatted code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
