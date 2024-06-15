@@ -3,9 +3,9 @@ package org.example;
 import java.util.Scanner;
 
 public class TicTacToe {
-    public Board board;
     private final Player player1;
     private final Player player2;
+    public Board board;
     Player currentPlayer;
 
     public TicTacToe() {
@@ -19,7 +19,7 @@ public class TicTacToe {
     public void start() {
         boolean playing = true;
         while (playing) {
-         board.print();
+            board.print();
             if (currentPlayer.getMarker() == '0') switchCurrentPlayer();
             System.out.println("Player " + currentPlayer.getMarker() + "'s turn");
             int row = getInput("Enter row (0, 1 or 2) ");
