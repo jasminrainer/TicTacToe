@@ -25,6 +25,7 @@ public class BoardTest {
         board.place(0, 0, 'X');
         assertFalse(board.isCellEmpty(0, 0));
     }
+
     @Test
     public void testPlaceMarker() {
         Board board = new Board();
@@ -32,7 +33,7 @@ public class BoardTest {
         assertEquals('O', board.getCells()[1][1]);
     }
 
-@Test
+    @Test
     public void testIsFull() {
         Board board = new Board();
         for (int i = 0; i < 3; i++) {
@@ -60,11 +61,11 @@ public class BoardTest {
 
         board.print();
         String expectedOutput =
-                " | | \n" +
-                        "-----\n" +
+                "-----\n" +
                         " | | \n" +
-                        "-----\n" +
-                        " | | \n";
+                        " | | \n" +
+                        " | | \n" +
+                        "-----\n";
 
         assertEquals(expectedOutput, actualOutput.toString());
 
@@ -76,11 +77,12 @@ public class BoardTest {
 
         board.print();
         expectedOutput =
+                "-----\n" +
                 "X| | \n" +
-                        "-----\n" +
+
                         " |O| \n" +
-                        "-----\n" +
-                        " | |X\n";
+                        " | |X\n" +
+                        "-----\n";
 
         assertEquals(expectedOutput, actualOutput.toString());
 
@@ -95,11 +97,11 @@ public class BoardTest {
 
         board.print();
         String notExpectedOutput =
+                "-----\n" +
                 "X|O|X\n" +
-                        "-----\n" +
                         "X|O|X\n" +
-                        "-----\n" +
-                        "X|O|X\n";
+                        "X|O|X\n" +
+                        "-----\n";
 
         assertNotEquals(notExpectedOutput, actualOutput.toString());
 
@@ -111,11 +113,11 @@ public class BoardTest {
 
         board.print();
         notExpectedOutput =
+                "-----\n" +
                 "O| | \n" +
-                        "-----\n" +
                         " |X| \n" +
-                        "-----\n" +
-                        " | |O\n";
+                        " | |O\n" +
+                        "-----\n";
 
         assertNotEquals(notExpectedOutput, actualOutput.toString());
 

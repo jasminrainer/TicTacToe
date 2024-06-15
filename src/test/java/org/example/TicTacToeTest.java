@@ -5,10 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.io.PrintStream;
+import java.io.*;
 
 
 public class TicTacToeTest {
@@ -42,17 +39,34 @@ public class TicTacToeTest {
 
     @Test
     public void testSwitchCurrentPlayer() {
-        // Initial player should be player1 with marker 'X'
+
         assertEquals('X', game.currentPlayer.getMarker());
 
-        // Switch to player2
         game.switchCurrentPlayer();
         assertEquals('O', game.currentPlayer.getMarker());
 
-        // Switch back to player1
         game.switchCurrentPlayer();
         assertEquals('X', game.currentPlayer.getMarker());
     }
+
+    @Test
+    public void testHasWinner() {
+
+        game.board.place(0, 0, 'X');
+        game.board.place(0, 1, 'X');
+        game.board.place(0, 2, 'X');
+
+        assertTrue(game.hasWinner());
+
+        game.board.clear();
+        game.board.place(0, 0, 'X');
+        game.board.place(0, 1, 'O');
+        game.board.place(0, 2, 'X');
+
+        assertFalse(game.hasWinner());
+    }
+
+
 }
 
 

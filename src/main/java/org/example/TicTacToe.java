@@ -13,23 +13,25 @@ public class TicTacToe {
         this.player1 = new Player('X');
         this.player2 = new Player('O');
         this.currentPlayer = player1;
-        board.print();
+
     }
 
     public void start() {
         boolean playing = true;
         while (playing) {
+         board.print();
             if (currentPlayer.getMarker() == '0') switchCurrentPlayer();
             System.out.println("Player " + currentPlayer.getMarker() + "'s turn");
             int row = getInput("Enter row (0, 1 or 2) ");
             int col = getInput("Enter column (0, 1 or 2) ");
             if (board.isCellEmpty(row, col)) {
                 board.place(row, col, currentPlayer.getMarker());
-                board.print();
                 if (hasWinner()) {
+                    board.print();
                     System.out.println("Player " + currentPlayer.getMarker() + " wins!");
                     playing = false;
                 } else if (board.isFull()) {
+                    board.print();
                     System.out.println("The game is a draw!");
                     playing = false;
                 } else switchCurrentPlayer();
