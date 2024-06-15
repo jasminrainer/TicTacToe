@@ -15,12 +15,46 @@ public class BoardTest {
     @BeforeEach
     public void setUp() {
         TicTacToe game = new TicTacToe();
+
+    }
+
+    @Test
+    public void testIsCellEmpty() {
+        Board board = new Board();
+        assertTrue(board.isCellEmpty(0, 0));
+        board.place(0, 0, 'X');
+        assertFalse(board.isCellEmpty(0, 0));
+    }
+    @Test
+    public void testPlaceMarker() {
+        Board board = new Board();
+        board.place(1, 1, 'O');
+        assertEquals('O', board.getCells()[1][1]);
+    }
+
+@Test
+    public void testIsFull() {
+        Board board = new Board();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                board.place(i, j, 'X');
+            }
+        }
+        assertTrue(board.isFull());
+    }
+
+    @Test
+    public void testClear() {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        board.clear();
+        assertTrue(board.isCellEmpty(0, 0));
     }
 
     @Test
     public void testPrintBoard() {
-        Board board = new Board();
 
+        Board board = new Board();
         ByteArrayOutputStream actualOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(actualOutput));
 
@@ -56,8 +90,6 @@ public class BoardTest {
     @Test
     public void testPrintBoardNotEquals() {
         Board board = new Board();
-
-
         ByteArrayOutputStream actualOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(actualOutput));
 
@@ -89,6 +121,8 @@ public class BoardTest {
 
         System.setOut(System.out);
     }
+
+
 }
 
 

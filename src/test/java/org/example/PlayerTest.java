@@ -24,4 +24,13 @@ public class PlayerTest {
     public void testPlayerMarkersNotEqual() {
         assertNotEquals(playerX.getMarker(), playerO.getMarker());
     }
+
+    @Test
+    public void testPlayer() {
+        Player player = new Player('X');
+        assertEquals('X', player.getMarker());
+
+        Player anotherPlayer = new Player('O');
+        assertEquals('O', anotherPlayer.getMarker());
+    }
 }

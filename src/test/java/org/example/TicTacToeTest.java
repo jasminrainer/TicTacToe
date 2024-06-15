@@ -5,6 +5,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.io.PrintStream;
+
 
 public class TicTacToeTest {
     private TicTacToe game;
@@ -13,6 +18,7 @@ public class TicTacToeTest {
     public void setUp() {
         game = new TicTacToe();
     }
+
 
     @Test
     public void testPlaceMarker() {
@@ -34,7 +40,19 @@ public class TicTacToeTest {
         assertNotEquals('O', cellValue);
     }
 
+    @Test
+    public void testSwitchCurrentPlayer() {
+        // Initial player should be player1 with marker 'X'
+        assertEquals('X', game.currentPlayer.getMarker());
 
+        // Switch to player2
+        game.switchCurrentPlayer();
+        assertEquals('O', game.currentPlayer.getMarker());
+
+        // Switch back to player1
+        game.switchCurrentPlayer();
+        assertEquals('X', game.currentPlayer.getMarker());
+    }
 }
 
 

@@ -6,7 +6,7 @@ public class TicTacToe {
     public Board board;
     private final Player player1;
     private final Player player2;
-    private Player currentPlayer;
+    Player currentPlayer;
 
     public TicTacToe() {
         this.board = new Board();
