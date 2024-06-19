@@ -49,6 +49,8 @@ public class TicTacToeTest {
         assertEquals('X', game.currentPlayer.getMarker());
     }
 
+
+
     @Test
     public void testHasWinner() {
 
@@ -66,6 +68,33 @@ public class TicTacToeTest {
         assertFalse(game.hasWinner());
     }
 
+    @Test
+    public void testHasWinnerWithIncompleteLine() {
+        game.board.place(0, 0, 'X');
+        game.board.place(0, 1, 'X');
+        // Do not place at (0, 2), so the line is incomplete
+
+        assertFalse(game.hasWinner());
+    }
+
+    @Test
+    public void testHasWinnerWithInvalidMarker() {
+        game.board.place(0, 0, 'A');
+        game.board.place(0, 1, 'A');
+        game.board.place(0, 2, 'A');
+
+        // Assume 'A' is not a valid marker (game is only for 'X' and 'O')
+        assertFalse(game.hasWinner());
+    }
+
+    @Test
+    public void testHasWinnerWithDiagonalWin() {
+        game.board.place(0, 0, 'X');
+        game.board.place(1, 1, 'X');
+        game.board.place(2, 2, 'X');
+
+        assertTrue(game.hasWinner());
+    }
 
 }
 
