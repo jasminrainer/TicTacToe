@@ -45,6 +45,32 @@ public class BoardTest {
     }
 
     @Test
+    public void testIsNotFull() {
+        Board board = new Board();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (!(i == 2 && j == 2)) { // Leave the last cell empty
+                    board.place(i, j, 'X');
+                }
+            }
+        }
+        assertFalse(board.isFull());
+    }
+
+    @Test
+    public void testIsFullWithOneEmptyCell() {
+        Board board = new Board();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (!(i == 1 && j == 1)) { // Leave one cell in the middle empty
+                    board.place(i, j, 'X');
+                }
+            }
+        }
+        assertFalse(board.isFull());
+    }
+
+    @Test
     public void testClear() {
         Board board = new Board();
         board.place(0, 0, 'X');
@@ -78,7 +104,7 @@ public class BoardTest {
         board.print();
         expectedOutput =
                 "-----\n" +
-                "X| | \n" +
+                        "X| | \n" +
 
                         " |O| \n" +
                         " | |X\n" +
@@ -98,7 +124,7 @@ public class BoardTest {
         board.print();
         String notExpectedOutput =
                 "-----\n" +
-                "X|O|X\n" +
+                        "X|O|X\n" +
                         "X|O|X\n" +
                         "X|O|X\n" +
                         "-----\n";
@@ -114,7 +140,7 @@ public class BoardTest {
         board.print();
         notExpectedOutput =
                 "-----\n" +
-                "O| | \n" +
+                        "O| | \n" +
                         " |X| \n" +
                         " | |O\n" +
                         "-----\n";
